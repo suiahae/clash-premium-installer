@@ -18,5 +18,5 @@ Simple clash premiun core installer with full tun support for Linux.
 
 - Run Installer
   ```bash
-  ./installer.sh install
+  sudo ./installer.sh install
   ```
