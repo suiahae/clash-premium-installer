@@ -56,14 +56,16 @@ function _install() {
     assert install -m 0700 scripts/setup-cgroup.sh /usr/lib/clash/setup-cgroup.sh
 
     assert install -m 0644 scripts/clash.service /usr/lib/systemd/system/clash.service
-    assert install -m 0644 scripts/99-clash.rules /usr/lib/udev/rules.d/99-clash.rules
+    assert install -m 0644 scripts/99-clash.rules /etc/udev/rules.d/99-clash.rules
+    systemctl daemon-reload
 
     echo "Install successfully"
     echo ""
-    echo "Home directory on /srv/proxy/clash"
+    echo "Home directory on /etc/proxy/clash/"
     echo ""
-    echo "Use 'systemctl start clash' to start"
-    echo "Use 'systemctl enable clash' to enable auto-restart on boot"
+    echo "Use 'sudo systemctl start clash' to start"
+    echo "Use 'sudo systemctl status clash' to show the service informations"
+    echo "Use 'sudo systemctl enable clash' to enable auto-restart on boot"
 
     exit 0
 }
