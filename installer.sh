@@ -56,7 +56,8 @@ function _install() {
     assert install -m 0700 scripts/setup-cgroup.sh /usr/lib/clash/setup-cgroup.sh
 
     assert install -m 0644 scripts/clash.service /usr/lib/systemd/system/clash.service
-    assert install -m 0644 scripts/99-clash.rules /etc/udev/rules.d/99-clash.rules
+    # assert install -m 0644 scripts/clash-with-udev.service /usr/lib/systemd/system/clash.service
+    # assert install -m 0644 scripts/99-clash.rules /etc/udev/rules.d/99-clash.rules
     systemctl daemon-reload
 
     echo "Install successfully"

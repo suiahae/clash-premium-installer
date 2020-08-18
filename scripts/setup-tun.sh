@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# echo "--------------------------" >> /var/log/tun-up.log
+# echo $(date "+%Y-%m-%d %H:%M:%S") setp-tun.s start >> /var/log/tun-up.log
+
 PROXY_BYPASS_USER="root"
 PROXY_BYPASS_CGROUP="0x16200000"
 PROXY_FWMARK="0x162"
