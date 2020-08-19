@@ -20,7 +20,7 @@ It is very convenient, but some settings do not work on Fedora. So I fork it and
 
 - Uncompress clash core and rename it to `./clash`
 
-- The default clash is clash-linux-amd64-2020.06.27.gz
+- The default clash is clash-linux-amd64-2020.08.16.gz
 
 - Run Installer
   ```bash
