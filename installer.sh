@@ -53,9 +53,11 @@ function _install() {
     assert install -m 0755 scripts/bypass-proxy-pid /usr/bin/bypass-proxy-pid
     assert install -m 0755 scripts/bypass-proxy /usr/bin/bypass-proxy
 
-    assert install -m 0700 scripts/clean-tun.sh /usr/lib/clash/clean-tun.sh
-    assert install -m 0700 scripts/setup-tun.sh /usr/lib/clash/setup-tun.sh
-    assert install -m 0700 scripts/setup-cgroup.sh /usr/lib/clash/setup-cgroup.sh
+    # assert install -m 0744 scripts/setup-tun-modified.sh /usr/lib/clash/setup-tun.sh
+    # assert install -m 0744 scripts/clean-tun-modified.sh /usr/lib/clash/clean-tun.sh
+    assert install -m 0744 scripts/setup-tun.sh /usr/lib/clash/setup-tun.sh
+    assert install -m 0744 scripts/clean-tun.sh /usr/lib/clash/clean-tun.sh
+    assert install -m 0744 scripts/setup-cgroup.sh /usr/lib/clash/setup-cgroup.sh
 
     assert install -m 0644 scripts/clash.service /usr/lib/systemd/system/clash.service
     # assert install -m 0644 scripts/clash-with-udev.service /usr/lib/systemd/system/clash.service
