@@ -16,11 +16,9 @@ It is very convenient, but some settings do not work on Fedora. So I fork it and
   cd clash-premium-installer
   ```
 
-- Download clash core [link](https://github.com/Dreamacro/clash/releases/tag/premium)
-
-- Uncompress clash core and rename it to `./clash`
-
 - The default clash is clash-linux-amd64-2020.08.16.gz
+
+- [Optional] You can also download clash core at [link](https://github.com/Dreamacro/clash/releases/tag/premium) , uncompress clash core and rename it to `./clash`
 
 - Run Installer
   ```bash
