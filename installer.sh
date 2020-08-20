@@ -46,6 +46,8 @@ function _install() {
 
     assert install -d -m 755 /usr/lib/clash
 
+    assert install -d -m 777 /etc/proxy/clash
+
     assert install -m 755 ./clash /usr/bin/clash
 
     assert install -m 0755 scripts/bypass-proxy-pid /usr/bin/bypass-proxy-pid
