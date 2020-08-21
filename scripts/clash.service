@@ -4,9 +4,9 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/bypass-proxy /usr/bin/clash -d /etc/proxy/clash
-ExecStartPost=+/usr/lib/clash/setup-tun.sh
-ExecStopPost=+/usr/lib/clash/clean-tun.sh
+ExecStart=/usr/local/bin/bypass-proxy /usr/local/bin/clash -d /usr/local/etc/clash
+ExecStartPost=+/usr/local/lib/clash/setup-tun.sh
+ExecStopPost=+/usr/local/lib/clash/clean-tun.sh
 
 [Install]
 WantedBy=multi-user.target

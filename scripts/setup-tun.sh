@@ -5,11 +5,11 @@ PROXY_FWMARK="0x162"
 PROXY_ROUTE_TABLE="0x162"
 PROXY_TUN_DEVICE_NAME="utun"
 
-/usr/lib/clash/clean-tun.sh
+/usr/local/lib/clash/clean-tun.sh
 
 sleep 0.5
 
-/usr/lib/clash/setup-cgroup.sh
+/usr/local/lib/clash/setup-cgroup.sh
 
 ip route replace default dev "$PROXY_TUN_DEVICE_NAME" table "$PROXY_ROUTE_TABLE"
 

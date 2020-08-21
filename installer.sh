@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PREFIX=/usr/local
+
 cd "`dirname $0`"
 
 function assert() {
@@ -44,20 +46,20 @@ function _install() {
     echo "Please download it from https://github.com/Dreamacro/clash/releases/tag/premium, and rename to ./clash"
     fi
 
-    assert install -d -m 755 /usr/lib/clash
+    assert install -d -m 777 /usr/local/etc/clash
 
-    assert install -d -m 777 /etc/proxy/clash
+    assert install -d -m 755 $PREFIX/lib/clash
 
-    assert install -m 755 ./clash /usr/bin/clash
+    assert install -m 755 ./clash $PREFIX/bin/clash
 
-    assert install -m 0755 scripts/bypass-proxy-pid /usr/bin/bypass-proxy-pid
-    assert install -m 0755 scripts/bypass-proxy /usr/bin/bypass-proxy
+    assert install -m 0755 scripts/bypass-proxy-pid $PREFIX/bin/bypass-proxy-pid
+    assert install -m 0755 scripts/bypass-proxy $PREFIX/bin/bypass-proxy
 
-    assert install -m 0744 scripts/setup-tun-modified.sh /usr/lib/clash/setup-tun.sh
-    assert install -m 0744 scripts/clean-tun-modified.sh /usr/lib/clash/clean-tun.sh
-    # assert install -m 0744 scripts/setup-tun.sh /usr/lib/clash/setup-tun.sh
-    # assert install -m 0744 scripts/clean-tun.sh /usr/lib/clash/clean-tun.sh
-    assert install -m 0744 scripts/setup-cgroup.sh /usr/lib/clash/setup-cgroup.sh
+    assert install -m 0755 scripts/setup-tun-modified.sh $PREFIX/lib/clash/setup-tun.sh
+    assert install -m 0755 scripts/clean-tun-modified.sh $PREFIX/lib/clash/clean-tun.sh
+    # assert install -m 0755 scripts/setup-tun.sh $PREFIX/lib/clash/setup-tun.sh
+    # assert install -m 0755 scripts/clean-tun.sh $PREFIX/lib/clash/clean-tun.sh
+    assert install -m 0755 scripts/setup-cgroup.sh $PREFIX/lib/clash/setup-cgroup.sh
 
     assert install -m 0644 scripts/clash.service /usr/lib/systemd/system/clash.service
     # assert install -m 0644 scripts/clash-with-udev.service /usr/lib/systemd/system/clash.service
@@ -66,7 +68,7 @@ function _install() {
 
     echo "Install successfully"
     echo ""
-    echo "Home directory on /etc/proxy/clash/"
+    echo "Home directory on /usr/local/etc/clash/"
     echo ""
     echo "Use 'sudo systemctl start clash' to start"
     echo "Use 'sudo systemctl status clash' to show the service informations"

@@ -2,6 +2,7 @@
 
 # echo "--------------------------" >> /var/log/tun-up.log
 # echo $(date "+%Y-%m-%d %H:%M:%S") setp-tun.s start >> /var/log/tun-up.log
+PREFIX=/usr/local
 
 PROXY_BYPASS_USER="root"
 PROXY_BYPASS_CGROUP="0x16200000"
@@ -11,11 +12,11 @@ PROXY_DNS_PORT="1053"
 PROXY_FORCE_NETADDR="198.18.0.0/16"
 PROXY_TUN_DEVICE_NAME="utun"
 
-/usr/lib/clash/clean-tun.sh
+$PREFIX/lib/clash/clean-tun.sh
 
 sleep 0.5
 
-/usr/lib/clash/setup-cgroup.sh
+$PREFIX/lib/clash/setup-cgroup.sh
 
 ipset create localnetwork hash:net
 ipset add localnetwork 127.0.0.0/8
