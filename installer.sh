@@ -84,12 +84,12 @@ function _uninstall() {
     systemctl stop clash
     systemctl disable clash
 
-    rm -rf /usr/lib/clash
-    rm -rf /usr/lib/systemd/system/clash.service
-    rm -rf /usr/lib/udev/rules.d/99-clash.rules
-    rm -rf /usr/bin/clash
-    rm -rf /usr/bin/bypass-proxy-uid
-    rm -rf /usr/bin/bypass-proxy
+    rm -rf $PREFIX/lib/clash
+    rm -rf $PREFIX/lib/systemd/system/clash.service
+    rm -rf $PREFIX/lib/udev/rules.d/99-clash.rules
+    rm -rf $PREFIX/bin/clash
+    rm -rf $PREFIX/bin/bypass-proxy-uid
+    rm -rf $PREFIX/bin/bypass-proxy
 
     echo "Uninstall successfully"
 
