@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# echo "--------------------------" >> /var/log/tun-up.log
-# echo $(date "+%Y-%m-%d %H:%M:%S") setp-tun.s start >> /var/log/tun-up.log
 
 PROXY_BYPASS_USER="root"
 PROXY_BYPASS_CGROUP="0x16200000"
@@ -10,6 +8,8 @@ PROXY_ROUTE_TABLE="0x162"
 PROXY_DNS_PORT="1053"
 PROXY_FORCE_NETADDR="198.18.0.0/16"
 PROXY_TUN_DEVICE_NAME="utun"
+
+# echo "---------------------------------------" >> /var/log/tun-up.log
 
 /usr/local/lib/clash/clean-tun.sh
 
@@ -51,3 +51,6 @@ iptables -t mangle -I PREROUTING -m set ! --match-set localnetwork dst -j MARK -
 
 iptables -t nat -I OUTPUT -p udp --dport 53 -j CLASH_DNS
 iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to "$PROXY_DNS_PORT"
+
+# echo $(date "+%Y-%m-%d %H:%M:%S") setup-tun.sh start >> /var/log/tun-up.log
+# echo "---------------------------------------" >> /var/log/tun-up.log

@@ -26,4 +26,8 @@ iptables -t nat -X CLASH_DNS
 
 ipset destroy localnetwork
 
+# echo "--------------------------" >> /var/log/tun-up.log
+# echo $(date "+%Y-%m-%d %H:%M:%S") clean-tun.sh start >> /var/log/tun-up.log
+# echo "--------------------------" >> /var/log/tun-up.log
+
 exit 0
