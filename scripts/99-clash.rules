@@ -1,2 +1,2 @@
-SUBSYSTEM=="net",ENV{INTERFACE}=="utun",ACTION=="add",RUN+="/usr/lib/clash/setup-tun.sh"
-SUBSYSTEM=="net",ENV{INTERFACE}=="utun",ACTION=="remove",RUN+="/usr/lib/clash/clean-tun.sh"
+SUBSYSTEM=="net",ENV{INTERFACE}=="utun",ACTION=="add",RUN+="/usr/local/lib/clash/setup-tun.sh"
+SUBSYSTEM=="net",ENV{INTERFACE}=="utun",ACTION=="remove",RUN+="/usr/local/lib/clash/clean-tun.sh"
