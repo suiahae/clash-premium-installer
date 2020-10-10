@@ -61,8 +61,10 @@ function _install() {
     # assert install -m 0755 scripts/clean-tun.sh $PREFIX/lib/clash/clean-tun.sh
     assert install -m 0755 scripts/setup-cgroup.sh $PREFIX/lib/clash/setup-cgroup.sh
 
-    assert install -m 0644 scripts/clash.service /usr/lib/systemd/system/clash.service
-    # assert install -m 0644 scripts/clash-with-udev.service /usr/lib/systemd/system/clash.service
+    assert install -m 0644 scripts/clash-modified.service /usr/lib/systemd/system/clash.service
+    assert install -m 0644 scripts/clash-utun.service /usr/lib/systemd/system/clash-utun.service
+    assert install -m 0644 scripts/clash-utun.timer /usr/lib/systemd/system/clash-utun.timer
+    # assert install -m 0644 scripts/clash.service /usr/lib/systemd/system/clash.service
     # assert install -m 0644 scripts/99-clash.rules /etc/udev/rules.d/99-clash.rules
     systemctl daemon-reload
 
@@ -73,6 +75,7 @@ function _install() {
     echo "Use 'sudo systemctl start clash' to start"
     echo "Use 'sudo systemctl status clash' to show the service informations"
     echo "Use 'sudo systemctl enable clash' to enable auto-restart on boot"
+    echo "Use 'sudo systemctl enable clash-utun.timer --now' to enable transparent proxy for clash"
 
     exit 0
 }
@@ -81,12 +84,16 @@ function _uninstall() {
     assert_command systemctl
     assert_command rm
 
+    systemctl stop clash-utun.timer
+    systemctl disable clash-utun.timer
     systemctl stop clash
     systemctl disable clash
 
     rm -rf $PREFIX/lib/clash
-    rm -rf $PREFIX/lib/systemd/system/clash.service
-    rm -rf $PREFIX/lib/udev/rules.d/99-clash.rules
+    rm -rf /usr/lib/systemd/system/clash.service
+    rm -rf /usr/lib/lib/systemd/system/clash-utun.service
+    rm -rf /usr/lib/lib/systemd/system/clash-utun.timer
+    # rm -rf /etc/udev/rules.d/99-clash.rules
     rm -rf $PREFIX/bin/clash
     rm -rf $PREFIX/bin/bypass-proxy-uid
     rm -rf $PREFIX/bin/bypass-proxy

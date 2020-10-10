@@ -16,9 +16,9 @@ It is very convenient, but some settings (udev.rules) do not work on Fedora. So 
   cd clash-premium-installer
   ```
 
-- The default clash is clash-linux-amd64-2020.08.16.gz
+- The default clash is clash-linux-amd64-2020.10.08.gz
 
-- [Optional] You can also download clash core at [link](https://github.com/Dreamacro/clash/releases/tag/premium) , uncompress clash core and rename it to `./clash`
+- [Optional] You can also download clash core at [link](https://github.com/Dreamacro/clash/releases/tag/premium), uncompress clash core and rename it to `./clash`
 
 - Run Installer
   ```bash
