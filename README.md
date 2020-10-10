@@ -6,7 +6,7 @@ Simple clash premiun core installer with full tun support for Linux.
 
 Seeking for a solution to install clash automatically, I discover [Clash Premiun Installer by Kr328](https://github.com/Kr328/clash-premium-installer/).
 
-It is very convenient, but some settings (udev.rules) do not work on Fedora. So I fork it and make some modifications
+It is very convenient, but The script to set up the cgroup does not work on Fedora (probably because of selinux). So I fork it and make some modifications
 
 ### Usage
 
