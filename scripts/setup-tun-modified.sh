@@ -13,9 +13,9 @@ PROXY_TUN_DEVICE_NAME="utun"
 
 /usr/local/lib/clash/clean-tun.sh
 
-sleep 0.5
+# sleep 0.5
 
-/usr/local/lib/clash/setup-cgroup.sh
+# /usr/local/lib/clash/setup-cgroup.sh
 
 ipset create localnetwork hash:net
 ipset add localnetwork 127.0.0.0/8
