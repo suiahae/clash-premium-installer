@@ -24,3 +24,7 @@ It is very convenient, but The script to set up the cgroup does not work on Fedo
   ```bash
   sudo ./installer.sh install
   ```
+- **[Urgent]** After creating config.yaml, please **change its permissions to rw-------** for avoiding information leakage.
+  ```bash
+  chmod 600 /usr/local/etc/clash/*
+  ```
