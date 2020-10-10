@@ -1,0 +1,11 @@
+[Unit]
+Description=A script to set up transparent proxy for clash
+Wants=clash.service
+After=clash.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/lib/clash/setup-tun.sh
+
+[Install]
+WantedBy=multi-user.target
