@@ -16,7 +16,7 @@ It is very convenient, but The script to set up the cgroup does not work on Fedo
   cd clash-premium-installer
   ```
 
-- The default clash is clash-linux-amd64-2020.10.08.gz
+- The default clash is clash-linux-amd64-2020.12.27
 
 - [Optional] You can also download clash core at [link](https://github.com/Dreamacro/clash/releases/tag/premium), uncompress clash core and rename it to `./clash`
 
