@@ -36,17 +36,17 @@ function _install() {
     exit 1
     fi
 
-    if [ ! -d "/sys/fs/cgroup/net_cls" ];then
-    echo "cgroup not support net_cls"
-    exit 1
-    fi
+    # if [ ! -d "/sys/fs/cgroup/net_cls" ];then
+    # echo "cgroup not support net_cls"
+    # exit 1
+    # fi
 
     if [ ! -f "./clash" ];then
     echo "Clash core not found."
     echo "Please download it from https://github.com/Dreamacro/clash/releases/tag/premium, and rename to ./clash"
     fi
 
-    assert install -d -m 777 /usr/local/etc/clash
+    assert install -d -m 777 $PREFIX/etc/clash
 
     assert install -d -m 755 $PREFIX/lib/clash
 
@@ -72,8 +72,10 @@ function _install() {
     echo ""
     echo "Home directory on /usr/local/etc/clash/"
     echo ""
+    echo "Please create config.yaml before running the following commands"
+    echo ""
     echo "Use 'sudo systemctl start clash' to start"
-    echo "Use 'sudo systemctl status clash' to show the service informations"
+    echo "Use 'systemctl status clash' to show the service informations"
     echo "Use 'sudo systemctl enable clash' to enable auto-restart on boot"
     echo "Use 'sudo systemctl enable clash-utun.timer --now' to enable transparent proxy for clash"
 
